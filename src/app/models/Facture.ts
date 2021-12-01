@@ -1,7 +1,9 @@
 export class Facture {
-    idFacture?:number; 
+  idFacture?:number; 
     montantRemise?:number;
 	 montantFacture?:number;
      datefacture?:number;
    active?:boolean;
+   modepaiement?:string;
+
 }

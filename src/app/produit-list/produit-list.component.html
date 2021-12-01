@@ -20,7 +20,7 @@
               <p> Montant Facture :{{u.code }}</p>
               <p>Active : {{ u.libelle }}</p>
               <p>Date Facture: {{ u.prixUnitaire}} </p>
-              <input type="text"  value="{{ u.idProduit}}" >
+              <input type="text"  value="{{ u.idProduit}}" formControlName="idProduit">
   
               <select class="js-basic-single form-control" formControlName="qte">
                 <optgroup label="Select Number of Products">
@@ -66,7 +66,7 @@
       </div>
   
    
-  
+      
   </div>
   
   

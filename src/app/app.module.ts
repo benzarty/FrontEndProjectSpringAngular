@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FactureComponent } from './facture/facture.component';
 import { ProduitListComponent } from './produit-list/produit-list.component';
 import { UpdateFactureComponent } from './update-facture/update-facture.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,10 @@ import { UpdateFactureComponent } from './update-facture/update-facture.componen
     NavbarComponent,
     SidbarComponent,
     LayoutComponent,
-    DetailFactureComponent,
-    FactureComponent,
-    ProduitListComponent,
-    UpdateFactureComponent,
+   
+    ProduitListComponent
+    
+    
     
   ],
   imports: [
@@ -35,7 +37,9 @@ import { UpdateFactureComponent } from './update-facture/update-facture.componen
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

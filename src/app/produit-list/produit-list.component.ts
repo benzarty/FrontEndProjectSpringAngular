@@ -16,6 +16,7 @@ export class ProduitListComponent implements OnInit,OnChanges {
 
   listProducts: Produit[];
   formGeneral: FormGroup;
+  toAdd: Produit;
 
 
   constructor(private us:ProductService,private us2:DetailFactureService,private uss: ActivatedRoute) { }
@@ -25,6 +26,7 @@ export class ProduitListComponent implements OnInit,OnChanges {
 
   ngOnInit(): void {
     this.getAllProdcuts();
+    this.toAdd=new Produit();
 
 
 
@@ -50,17 +52,18 @@ export class ProduitListComponent implements OnInit,OnChanges {
     });
   }
 
-  get idProduit() {
-    return this.formGeneral.get('formGeneral.idProduit');
-  }
+
 
   save() {
 
+    let qte=this.formGeneral.get('qte').value;
+    let idProduit=this.formGeneral.get('idProduit').value;
+
+    let myi=new DetailFacture();
+    myi.qte=this.formGeneral.get('qte').value;
 
 
-
-
-    this.us2.addDetailFacture(this.formGeneral.value,this.idProduit.value).subscribe(res => {
+    this.us2.addDetailFacture(myi,idProduit).subscribe(res => {
 
 
       console.log('Product created!');

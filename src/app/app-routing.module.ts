@@ -1,3 +1,4 @@
+import { FactureModulesModule } from './facture-modules/facture-modules.module';
 import { ProduitListComponent } from './produit-list/produit-list.component';
 import { FactureComponent } from './facture/facture.component';
 import { DetailFactureComponent } from './detail-facture/detail-facture.component';
@@ -13,8 +14,10 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: LayoutComponent },
-      { path: 'facture', component: FactureComponent },
-      { path: 'detailfacture/:idfacture', component: DetailFactureComponent },
+      {path:'facture', loadChildren: 
+()=>import('./facture-modules/facture-modules.module').then(m=>m.FactureModulesModule)} ,
+     // { path: 'facture', component: FactureComponent },
+    //  { path: 'detailfacture/:idfacture', component: DetailFactureComponent },
       { path: 'listProduit', component: ProduitListComponent },
 
 
