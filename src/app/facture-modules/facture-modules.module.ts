@@ -1,3 +1,4 @@
+import { HistoryFactureComponent } from './../history-facture/history-facture.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateFactureComponent } from './../update-facture/update-facture.component';
 import { FactureComponent } from './../facture/facture.component';
@@ -10,22 +11,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
   declarations: [
     DetailFactureComponent,
     FactureComponent,
-    UpdateFactureComponent
+    UpdateFactureComponent,
+    HistoryFactureComponent
 
 
   ],
   imports: [
     CommonModule,
     FactureModulesRoutingModule,
-  
+    HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class FactureModulesModule { }

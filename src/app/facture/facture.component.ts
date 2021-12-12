@@ -1,3 +1,5 @@
+import { ClientService } from './../Services/client.service';
+import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Facture } from './../models/Facture';
@@ -12,18 +14,29 @@ import { FactureService } from '../Services/facture.service';
 export class FactureComponent implements OnInit {
   show=false;
   factures:Facture[];
+  myForm :FormGroup;
 
   factureToEditParent:Facture;
 
   listFactureByClient: Facture[];
  
-  constructor(private us:FactureService,private Router: Router,private uss: ActivatedRoute,private toaster:ToastrService) { }
+  constructor(private us:FactureService,private Router: Router,private uss: ActivatedRoute,private toaster:ToastrService,private us2:ClientService) { }
   ngOnInit(): void {
 
-    this.getFactureByClient();
+   this.loadFactures();
+
+   this.myForm=new FormGroup({
+   
+  
+  }) ;
   }
 
+  
 
+
+  loadFactures() {
+    this.getFactureByClient();
+  }
   editFacture(x:Facture){
     this.show=true;
     this.factureToEditParent=x;
@@ -48,14 +61,38 @@ export class FactureComponent implements OnInit {
 
   }
 
-  editMyFacture(i:any){
-    for (let k in this.factures){
-      if (this.factures[k].idFacture == i.idFacture){
-        this.factures[k]=i;
-      }
-    }
-
-
+  editMyFacture(f:Facture){
     
   }
+
+  getall(v:any) {
+
+    
+    console.log(v);
+    
+    
+ this.us2.SendMail(v).subscribe(res => {
+
+  this.toaster.success('Check Your Inobx','Notification')
+
+  this.us.Closefacture(v).subscribe(res => {
+
+   
+    this.getFactureByClient()
+
+        
+     })
+      
+   })
+
+
+}
+
+
+
+
+
+
+
+  
 }

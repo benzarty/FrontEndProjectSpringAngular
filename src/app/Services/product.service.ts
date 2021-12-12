@@ -14,6 +14,6 @@ export class ProductService {
 
   
   getAllProduits() : Observable<Produit[]>{
-    return this.myhttp.get<Produit[]>("/api/SpringMVC/Produit/retrieve-all-produit");
+    return this.myhttp.get<Produit[]>("/api/SpringMVC/Produit/retrieve-all-produits");
   }
 }

@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { DetailFactureService } from './../Services/detail-facture.service';
 import { DetailFacture } from './../models/DetailFacture';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,32 +15,29 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ProduitListComponent implements OnInit,OnChanges {
 
+  u :Produit=new Produit();
+  myForm :FormGroup;
   listProducts: Produit[];
-  formGeneral: FormGroup;
   toAdd: Produit;
 
+   idclient : string ;
 
-  constructor(private us:ProductService,private us2:DetailFactureService,private uss: ActivatedRoute) { }
+  constructor(private toaster:ToastrService,private us:ProductService,private us2:DetailFactureService,private uss: ActivatedRoute) { }
   ngOnChanges(changes: SimpleChanges): void {
 
       }
 
   ngOnInit(): void {
     this.getAllProdcuts();
-    this.toAdd=new Produit();
+
+    this.myForm=new FormGroup({
+      qte:new FormControl(),
+    
+    }) ;
 
 
 
 
-    this.formGeneral = new FormGroup({
-      qte: new FormControl("", [Validators.required]),
-      //idProduit: new FormControl("1", [Validators.required]),
-
-
-
-
-
-    });
 
   }
 
@@ -54,26 +52,28 @@ export class ProduitListComponent implements OnInit,OnChanges {
 
 
 
-  save() {
+  getall(v:any) {
 
-    let qte=this.formGeneral.get('qte').value;
-    let idProduit=this.formGeneral.get('idProduit').value;
+    console.log(v);
+  
 
     let myi=new DetailFacture();
-    myi.qte=this.formGeneral.get('qte').value;
+    myi.qte=this.myForm.get('qte').value;
 
+this.idclient="1";
 
-    this.us2.addDetailFacture(myi,idProduit).subscribe(res => {
+   this.us2.addDetailFacture(myi,v,this.idclient).subscribe(res => {
 
+    this.toaster.success('Produit Ajouter Au Panier','Notification')
 
-      console.log('Product created!');
-      
-      /* this.router.navigateByUrl('/home'); */
 })
 
 
+}
+}
 
-  }
 
   
-}
+
+  
+

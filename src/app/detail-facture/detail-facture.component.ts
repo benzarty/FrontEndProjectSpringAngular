@@ -1,7 +1,8 @@
 import { DetailFactureService } from './../Services/detail-facture.service';
 import { DetailFacture } from './../models/DetailFacture';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-detail-facture',
@@ -11,13 +12,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DetailFactureComponent implements OnInit {
 
   list: DetailFacture[];
+  @ViewChild('content111', {static:false}) el!:ElementRef;
 
   DetailFactureToEditParent: DetailFacture;
   show=false;
+
+  public id: string;
   constructor(private us:DetailFactureService,private router: Router,private uss: ActivatedRoute) { }
 
   ngOnInit(): void {
-
 
 
    
@@ -46,4 +49,14 @@ export class DetailFactureComponent implements OnInit {
     this.DetailFactureToEditParent=x;
     
   }
+makePDF()
+{
+  let pdf=new  jsPDF('p','pt','a1');
+  pdf.html(this.el.nativeElement,{callback:(pdf)=>{pdf.save("demo.pdf")}})
+  
+}
+
+
+
+
 }

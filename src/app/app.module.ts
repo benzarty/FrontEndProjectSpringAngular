@@ -16,6 +16,8 @@ import { ProduitListComponent } from './produit-list/produit-list.component';
 import { UpdateFactureComponent } from './update-facture/update-facture.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from 'ngx-toastr';
+import { HistoryFactureComponent } from './history-facture/history-facture.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ToastrModule } from 'ngx-toastr';
     SidbarComponent,
     LayoutComponent,
    
-    ProduitListComponent
+    ProduitListComponent,
+         
+         
     
     
     

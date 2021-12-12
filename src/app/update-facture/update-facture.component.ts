@@ -15,11 +15,13 @@ export class UpdateFactureComponent implements OnInit,OnChanges {
 
   @Input() FactureToEdit:Facture;
   @Output() edited = new EventEmitter<Facture>();
+  listFactureByClient: Facture[];
 
 
   constructor(private ps:FactureService, private router: Router,private toaster:ToastrService) { }
   myForm:FormGroup;
   ngOnInit(): void {
+    
   }
   ngOnChanges(){
       //esm proprité w type SimpleChange wa7da 
@@ -27,11 +29,7 @@ export class UpdateFactureComponent implements OnInit,OnChanges {
     this.myForm=new FormGroup({
      // modepaiement:new FormControl({"value":this.FactureToEdit.modepaiement,"disabled":true}),
      modepaiement: new FormControl(this.FactureToEdit.modepaiement,Validators.required),
-     idfacture: new FormControl(this.FactureToEdit.idFacture,Validators.required),
-
-
-     
-    
+     idfacture: new FormControl(this.FactureToEdit.idFacture,Validators.required)
 
   })
 
@@ -47,17 +45,25 @@ export class UpdateFactureComponent implements OnInit,OnChanges {
     let modet=this.myForm.get('modepaiement').value;
     let id=this.myForm.get('idfacture').value;
 
-    this.ps.updateFacture(id,modet).subscribe();
+    this.ps.updateFacture(id,modet).subscribe(
+      res => {
+        console.log("Update successful");
+        this.edited.emit(this.FactureToEdit)
+        this.toaster.success('Modification succées ','Notification')
+        this.router.navigateByUrl("/home/facture/facture")
+
+      }
+    );
 
   
-    this.edited.emit(myi);
-    this.toaster.success('Modification succées ','Notification')
+
+    
 
   }
   
 
    
-   
+ 
    
 
 

@@ -16,8 +16,8 @@ export class DetailFactureService {
   }
 
 
-  addDetailFacture (detailfacture: DetailFacture,idProduit:number): Observable<DetailFacture> {
-    return this.myhttp.post<DetailFacture>("/api/SpringMVC/DetailFacture/add-DetailFacture/"+idProduit+"/2", detailfacture, this.httpOptions);}
+  addDetailFacture (detailfacture: DetailFacture,idProduit:number,idclient:string): Observable<DetailFacture> {
+    return this.myhttp.post<DetailFacture>("/api/SpringMVC/DetailFacture/add-DetailFacture2/"+idProduit+"/"+idclient, detailfacture, this.httpOptions);}
 
     httpOptions = {
       headers: new HttpHeaders({
