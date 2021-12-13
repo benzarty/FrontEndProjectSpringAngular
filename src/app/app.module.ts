@@ -26,6 +26,11 @@ import { UpdateStockComponent } from './Stock/update-stock/update-stock.componen
 import { ErrorsComponent } from './errors/errors/errors.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { ModalModule } from 'ngx-modal-bootstrap';
+import { ProduitList1Component } from './Produit/produit-list1/produit-list1.component';
+import { ListeProduitadminComponent } from './Produit/liste-produitadmin/liste-produitadmin.component';
+import { DetailProduitComponent } from './Produit/detail-produit/detail-produit.component';
+import { ProduitPipe } from './Produit/rechercherproduit/produit.pipe';
 
 
 
@@ -47,6 +52,10 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     AddStockComponent,
     UpdateStockComponent,
     ErrorsComponent,
+    ProduitList1Component,
+    ListeProduitadminComponent,
+    DetailProduitComponent,
+    ProduitPipe,
 
 
 
@@ -63,6 +72,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     NgxPaginationModule,
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
+    ModalModule.forRoot(),
     ToastrModule.forRoot()
   ],
   providers: [],

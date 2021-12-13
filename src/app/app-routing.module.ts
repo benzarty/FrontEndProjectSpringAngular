@@ -1,3 +1,5 @@
+import { DetailProduitComponent } from './Produit/detail-produit/detail-produit.component';
+import { ProduitList1Component } from './Produit/produit-list1/produit-list1.component';
 
 
 import { FactureModulesModule } from './facture-modules/facture-modules.module';
@@ -14,6 +16,7 @@ import { UpdateRayonComponent } from './Rayon/update-rayon/update-rayon.componen
 import { ListStockComponent } from './Stock/list-stock/list-stock.component';
 import { AddStockComponent } from './Stock/add-stock/add-stock.component';
 import { UpdateStockComponent } from './Stock/update-stock/update-stock.component';
+import { ListeProduitadminComponent } from './Produit/liste-produitadmin/liste-produitadmin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,19 +25,32 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: LayoutComponent },
-      { path: 'rayon-management',
-      children:[
-                        {path: 'list-rayon', component: ListRayonComponent},
-                        {path: 'add-rayon', component: AddRayonComponent},
-                        {path: 'update-rayon/:id', component: UpdateRayonComponent}
-                      ]
-}, {  path: 'stock-management',
-children: [
-                  { path: 'list-stock', component: ListStockComponent },
-                  { path: 'add-stock', component: AddStockComponent },
-                  { path: 'update-stock/:id', component: UpdateStockComponent }
-                ]
-},
+      {
+        path: 'rayon-management',
+        children: [
+          { path: 'list-rayon', component: ListRayonComponent },
+          { path: 'add-rayon', component: AddRayonComponent },
+          { path: 'update-rayon/:id', component: UpdateRayonComponent }
+        ]
+      },
+
+
+      {
+        path: 'stock-management',
+        children: [
+          { path: 'list-stock', component: ListStockComponent },
+          { path: 'add-stock', component: AddStockComponent },
+          { path: 'update-stock/:id', component: UpdateStockComponent }
+        ]
+      },
+      {
+        path: 'produit-management',
+        children: [
+          { path: 'listProduit1', component: ProduitList1Component },
+          { path: 'listProduitAdmin', component: ListeProduitadminComponent },
+          { path: 'produitdetail/:idProduit', component: DetailProduitComponent }
+        ]
+      },
 
 
 
@@ -43,14 +59,16 @@ children: [
 
 
 
-      {path:'facture', loadChildren: 
-()=>import('./facture-modules/facture-modules.module').then(m=>m.FactureModulesModule)} ,
-     // { path: 'facture', component: FactureComponent },
-    //  { path: 'detailfacture/:idfacture', component: DetailFactureComponent },
+      {
+        path: 'facture', loadChildren:
+          () => import('./facture-modules/facture-modules.module').then(m => m.FactureModulesModule)
+      },
+      // { path: 'facture', component: FactureComponent },
+      //  { path: 'detailfacture/:idfacture', component: DetailFactureComponent },
       { path: 'listProduit', component: ProduitListComponent },
 
 
-      
+
     ],
   },
 ];
@@ -59,4 +77,4 @@ children: [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,0 +1,28 @@
+<div class="app-main" id="main">
+    <!-- begin container-fluid -->
+    <div class="container-fluid">
+  <div class="row"  >
+    <div class="col-xl-4 col-sm-3" *ngFor="let p of listProducts; let i=index ">
+        <div class="card card-statistics employees-contant px-2">
+            <div class="card-body  justify-content-center pb-5 pt-1/4">
+                <div class="text-center">
+                    <div class="text-right">
+                        <h4><span class="badge badge-primary badge-pill px-3 py-2"></span></h4>
+                    </div>
+                    <div class="pt-1 bg-img m-auto"><img src="assets\tele.png" class="img-fluid" alt="employees-img"></div>
+                    <div class="mt-3 employees-contant-inner">
+                        <h4 class="mb-1">{{p.libelle}}</h4>
+                        <h5 class="mb-0 text-muted">{{p.prixUnitaire}} DT</h5>
+                        <div class="mt-3 ">
+                            <span class="badge badge-pill badge-success-inverse px-3 py-2 hidden= true">{{p.code}}</span>
+                            <!-- <div routerLink="/produitdetail/{{p.idProduit}}"></div> -->
+                            <button (click) ="getbyidproduit(i)" class="badge badge-pill badge-primary-inverse px-3 py-2" >voir plus de détails</button>
+                            <app-detail-produit *ngIf="hidden && nb==i" [idProduit]="p.idProduit"></app-detail-produit>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
