@@ -1,3 +1,10 @@
+import { ClientProfileComponent } from './Client-Managment/client-profile/client-profile.component';
+import { ClientUpdateComponent } from './Client-Managment/client-update/client-update.component';
+import { ClientAddComponent } from './Client-Managment/client-add/client-add.component';
+import { ClientRetrieveComponent } from './Client-Managment/client-retrieve/client-retrieve.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SignupComponent } from './Auth-Managment/signup/signup.component';
+import { LoginComponent } from './Auth-Managment/login/login.component';
 import { DetailProduitComponent } from './Produit/detail-produit/detail-produit.component';
 import { ProduitList1Component } from './Produit/produit-list1/produit-list1.component';
 
@@ -17,6 +24,7 @@ import { ListStockComponent } from './Stock/list-stock/list-stock.component';
 import { AddStockComponent } from './Stock/add-stock/add-stock.component';
 import { UpdateStockComponent } from './Stock/update-stock/update-stock.component';
 import { ListeProduitadminComponent } from './Produit/liste-produitadmin/liste-produitadmin.component';
+import { RouteGuardService } from './Services/route-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,6 +33,10 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: LayoutComponent },
+      {path:'clientretrieve',component: ClientRetrieveComponent},
+      {path: 'add-client',component: ClientAddComponent},
+      {path: 'modify-client/:id', component: ClientUpdateComponent },
+      {path: 'client-profile', component: ClientProfileComponent},
       {
         path: 'rayon-management',
         children: [
@@ -69,8 +81,11 @@ const routes: Routes = [
 
 
 
-    ],
+    ], canActivate:[RouteGuardService]
   },
+  {path: 'login',component: LoginComponent},
+  {path: 'signup',component: SignupComponent},
+  {path: '**',component: NotFoundComponent}
 ];
 
 @NgModule({

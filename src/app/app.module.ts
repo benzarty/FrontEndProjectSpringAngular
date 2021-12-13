@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -31,6 +31,16 @@ import { ProduitList1Component } from './Produit/produit-list1/produit-list1.com
 import { ListeProduitadminComponent } from './Produit/liste-produitadmin/liste-produitadmin.component';
 import { DetailProduitComponent } from './Produit/detail-produit/detail-produit.component';
 import { ProduitPipe } from './Produit/rechercherproduit/produit.pipe';
+import { LoginComponent } from './Auth-Managment/login/login.component';
+import { SignupComponent } from './Auth-Managment/signup/signup.component';
+import { ClientAddComponent } from './Client-Managment/client-add/client-add.component';
+import { ClientRetrieveComponent } from './Client-Managment/client-retrieve/client-retrieve.component';
+import { ClientUpdateComponent } from './Client-Managment/client-update/client-update.component';
+import { ClientProfileComponent } from './Client-Managment/client-profile/client-profile.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpInterceptorService } from './Services/http-interceptor.service';
+
 
 
 
@@ -56,6 +66,13 @@ import { ProduitPipe } from './Produit/rechercherproduit/produit.pipe';
     ListeProduitadminComponent,
     DetailProduitComponent,
     ProduitPipe,
+    LoginComponent,
+    SignupComponent,
+    ClientAddComponent,
+    ClientRetrieveComponent,
+    ClientUpdateComponent,
+    ClientProfileComponent,
+    NotFoundComponent,
 
 
 
@@ -73,9 +90,9 @@ import { ProduitPipe } from './Produit/rechercherproduit/produit.pipe';
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),SimpleNotificationsModule.forRoot()
   ],
-  providers: [],
+  providers: [{provide : HTTP_INTERCEPTORS , useClass : HttpInterceptorService ,multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

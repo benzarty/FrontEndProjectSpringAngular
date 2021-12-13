@@ -11,6 +11,9 @@
           </a>
   
         </li>
+        <li><a [routerLink]="['/home/clientretrieve']" aria-expanded="false"><i class="fas fa-users"></i><span
+          class="nav-title">Gerer client</span></a></li>
+
         <li><a [routerLink]="['/home/produit-management/listProduitAdmin']" aria-expanded="false"><i class="dashicons dashicons-editor-help"></i><span
           class="nav-title">Liste Produit Admin</span></a></li>
   
@@ -35,6 +38,9 @@
           <li><a routerLink="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
             class="nav-title">Gerer fournisseur</span></a></li>
       
+
+            <li><a routerLink="" aria-expanded="false" [routerLink]="['/login']" (click)="logout"><i class="fas fa-sign-out-alt"></i><span
+              class="nav-title" >Logout</span></a></li>
 
       </ul>
     </div>
