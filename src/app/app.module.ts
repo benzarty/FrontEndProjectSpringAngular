@@ -17,6 +17,17 @@ import { UpdateFactureComponent } from './update-facture/update-facture.componen
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from 'ngx-toastr';
 import { HistoryFactureComponent } from './history-facture/history-facture.component';
+import { ListRayonComponent } from './Rayon/list-rayon/list-rayon.component';
+import { AddRayonComponent } from './Rayon/add-rayon/add-rayon.component';
+import { UpdateRayonComponent } from './Rayon/update-rayon/update-rayon.component';
+import { ListStockComponent } from './Stock/list-stock/list-stock.component';
+import { AddStockComponent } from './Stock/add-stock/add-stock.component';
+import { UpdateStockComponent } from './Stock/update-stock/update-stock.component';
+import { ErrorsComponent } from './errors/errors/errors.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+
+
 
 
 @NgModule({
@@ -27,13 +38,20 @@ import { HistoryFactureComponent } from './history-facture/history-facture.compo
     NavbarComponent,
     SidbarComponent,
     LayoutComponent,
-   
+
     ProduitListComponent,
-         
-         
-    
-    
-    
+    ListRayonComponent,
+    AddRayonComponent,
+    UpdateRayonComponent,
+    ListStockComponent,
+    AddStockComponent,
+    UpdateStockComponent,
+    ErrorsComponent,
+
+
+
+
+
   ],
   imports: [
     HttpClientModule,
@@ -42,6 +60,8 @@ import { HistoryFactureComponent } from './history-facture/history-facture.compo
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],

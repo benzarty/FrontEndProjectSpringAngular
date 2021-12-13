@@ -12,37 +12,30 @@
   
         </li>
         <li><a routerLink="/home/candidat" aria-expanded="false"><i class="dashicons dashicons-editor-help"></i><span
-          class="nav-title">Gerer client</span></a></li>
+          class="nav-title">Liste Produit Admin</span></a></li>
   
         <li><a routerLink="/home/entreprise" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
-          class="nav-title">Gerer produit</span></a></li>
-  
-  
-  
-        <li>
-          <a class="has-arrow" routerLink="/home/domaine" aria-expanded="false"><i
-            class="nav-icon ti ti-layout-column3-alt"></i><span class="nav-title">Domaine</span></a>
-          <ul aria-expanded="false">
-            <li><a href="tables-basic.html">Basic Table</a></li>
-            <li><a href="tables-color.html">Color Table </a></li>
-            <li><a href="tables-datatable.html">Data Table</a></li>
-            <li><a href="tables-editable.html">Editable Table</a></li>
-            <li><a href="tables-export.html">Export Table</a></li>
-          </ul>
-        </li>
-        <li><a [routerLink]="['/home/facture/facture']" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span
-          class="nav-title">Panier</span></a></li>
-        <li><a routerLink="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
-          class="nav-title">Gerer fournisseur</span></a></li>
-        <li><a routerLink="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
-          class="nav-title">Gerer stock</span></a></li>
-  <li><a routerLink="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
-          class="nav-title">Gerer rayon</span></a></li>
+          class="nav-title">Liste Produit Client</span></a></li>
 
           <li><a routerLink="" aria-expanded="false" [routerLink]="['/home/listProduit']"><i class="nav-icon ti ti-email"></i><span
             class="nav-title" >Liste Produit Benzarti</span></a></li>
   
   
+  
+        <li><a [routerLink]="['/home/facture/facture']" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span
+          class="nav-title">Panier</span></a></li>
+
+          
+        <li><a [routerLink]="['/home/stock-management/list-stock']" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
+          class="nav-title">Gerer stock</span></a></li>
+  <li><a [routerLink]="['/home/rayon-management/list-rayon']" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
+          class="nav-title">Gerer rayon</span></a></li>
+
+         
+          <li><a routerLink="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
+            class="nav-title">Gerer fournisseur</span></a></li>
+      
+
       </ul>
     </div>
     <!-- end sidebar-nav -->
