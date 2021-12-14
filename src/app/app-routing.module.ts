@@ -33,10 +33,13 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: LayoutComponent },
+    
       {path:'clientretrieve',component: ClientRetrieveComponent},
       {path: 'add-client',component: ClientAddComponent},
       {path: 'modify-client/:id', component: ClientUpdateComponent },
       {path: 'client-profile', component: ClientProfileComponent},
+      {path:'', loadChildren: 
+      ()=>import('./Fournisseur/fournisseur-module/fournisseur-module.module').then(m=>m.FournisseurModuleModule)} ,
       {
         path: 'rayon-management',
         children: [

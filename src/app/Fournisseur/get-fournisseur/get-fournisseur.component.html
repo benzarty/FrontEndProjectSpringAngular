@@ -1,0 +1,22 @@
+<div class="perso">
+
+<p> Code Fournisseur : {{fournisseur.codeFournisseur}}</p>
+<p>Libellé Fournisseur : {{fournisseur.libelleFournisseur}}</p>
+
+
+<Button class="btn btn-primary" (click)="getnbProduit()">Nombre du Produit dans le marché</Button> <span [(ngModel)]="nbProduit" name="firstname">==> {{nbProduit}}</span>
+<!-- <div class=" btn fb-share-button" [attr.data-href]="http://localhost:4200/home/listFournisseur" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fform%2Faide%2F10%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share On Facebook </a></div> -->
+<app-fournisseur-chart ></app-fournisseur-chart>
+<button (click)="toggleMap()" class="btn btn-primary" [(ngModel)]="TextBtn">{{TextBtn}}</button>
+<span *ngIf="showmap">
+<iframe
+  width="600"
+  height="450"
+  style="border:0;width:100%;"
+ margin="10px 70px"
+  loading="lazy"
+  allowfullscreen
+  [src]="link">
+</iframe>
+</span>
+</div>

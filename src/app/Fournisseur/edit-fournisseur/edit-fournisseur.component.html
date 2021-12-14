@@ -1,0 +1,19 @@
+
+
+<form class="" [formGroup]="myForm" (ngSubmit)="edit()">
+    <input type="hidden"  formControlName="idFournisseur">  
+    <div class="form-group">
+     
+        <label>Code Fournisseur</label>
+        <input type="text"   class="form-control" formControlName="codeFournisseur"> 
+  
+ 
+        <label>Libellé Fournisseur</label>
+        <input type="text" 
+        class="form-control" formControlName="libelleFournisseur">
+    </div> 
+  
+   
+      
+    <input type="submit" class="btn btn-primary" value="Update Fournisseur">       
+</form>

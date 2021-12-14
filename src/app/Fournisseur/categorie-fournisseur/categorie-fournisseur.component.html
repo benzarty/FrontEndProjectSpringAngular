@@ -1,0 +1,30 @@
+
+
+<div class="filter">
+  <!--  <input type="text" class="form-control"  placeholder="Code Fournisseur" aria-label="Code Fournisseur" aria-describedby="basic-addon1">-->
+    <button class="btn btn-secondary" (click)="setElec()" >Electromenager</button>
+    <button class="btn btn-secondary"(click)="setAli()">ALIMENTATION</button>
+      <button class="btn btn-secondary" (click)="setQuin()" >QUINCAILLERIE</button>
+      </div>
+   
+<section class="lesFournisseur">
+  <h1 [(ngModel)]="show" *ngIf="show" >{{cat}}</h1> <br>
+  <div *ngFor="let i of list">
+    <div *ngFor="let i of list; let position=index">
+    
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{i.codeFournisseur}}</h5>
+             
+              <p class="card-text">{{i.libelleFournisseur}}</p>
+              <button [routerLink]="['/home/listFournisseur/',i.idFournisseur]" class="btn btn-primary">Visite</button> 
+              <button  class="btn btn-secondary" >Edit</button> 
+              <button  class="btn btn-danger">Delete</button>
+   
+            </div>
+          </div>
+    
+    
+    </div>
+  </div>
+    </section> 
