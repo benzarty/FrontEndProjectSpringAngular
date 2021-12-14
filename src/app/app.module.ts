@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -81,6 +82,7 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
   ],
   imports: [
     HttpClientModule,
+    RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserModule,

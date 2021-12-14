@@ -61,8 +61,8 @@ export class ListeProduitadminComponent implements OnInit {
     myi.prixUnitaire=this.formproduit.get('prixUnitaire').value;
      //myi.categorieProduit=this.formproduit.get('categorieProduit').value;
      myi.detailproduit= {
-       "idDetailProduit":9,
-      "categorieProduit": "Alimentaire",
+       "idDetailProduit":3,
+      "categorieProduit": "Electromenager",
        "dateCreation" : "2021-11-01",
       "dateDerniereModification": "2021-11-09"
     };
