@@ -1,3 +1,4 @@
+import { FacturesearchPipe } from '../rechercherfacture/facturesearch.pipe';
 import { HistoryFactureComponent } from './../history-facture/history-facture.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateFactureComponent } from './../update-facture/update-facture.component';
@@ -19,17 +20,19 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DetailFactureComponent,
     FactureComponent,
     UpdateFactureComponent,
-    HistoryFactureComponent
+   
 
 
   ],
   imports: [
+    
     CommonModule,
     FactureModulesRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+  
   ]
 })
 export class FactureModulesModule { }

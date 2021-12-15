@@ -17,12 +17,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './home/layout/layout.component';
-import { ListRayonComponent } from './Rayon/list-rayon/list-rayon.component';
-import { AddRayonComponent } from './Rayon/add-rayon/add-rayon.component';
-import { UpdateRayonComponent } from './Rayon/update-rayon/update-rayon.component';
-import { ListStockComponent } from './Stock/list-stock/list-stock.component';
-import { AddStockComponent } from './Stock/add-stock/add-stock.component';
-import { UpdateStockComponent } from './Stock/update-stock/update-stock.component';
+
 import { ListeProduitadminComponent } from './Produit/liste-produitadmin/liste-produitadmin.component';
 import { RouteGuardService } from './Services/route-guard.service';
 
@@ -40,24 +35,14 @@ const routes: Routes = [
       {path: 'client-profile', component: ClientProfileComponent},
       {path:'', loadChildren: 
       ()=>import('./Fournisseur/fournisseur-module/fournisseur-module.module').then(m=>m.FournisseurModuleModule)} ,
+   
+      
       {
-        path: 'rayon-management',
-        children: [
-          { path: 'list-rayon', component: ListRayonComponent },
-          { path: 'add-rayon', component: AddRayonComponent },
-          { path: 'update-rayon/:id', component: UpdateRayonComponent }
-        ]
-      },
+        path: 'stock-rayon', loadChildren:
+        ()=>import('./stock-rayon/stock-rayon.module').then(m=>m.StockRayonModule)} ,
 
 
-      {
-        path: 'stock-management',
-        children: [
-          { path: 'list-stock', component: ListStockComponent },
-          { path: 'add-stock', component: AddStockComponent },
-          { path: 'update-stock/:id', component: UpdateStockComponent }
-        ]
-      },
+  
       {
         path: 'produit-management',
         children: [

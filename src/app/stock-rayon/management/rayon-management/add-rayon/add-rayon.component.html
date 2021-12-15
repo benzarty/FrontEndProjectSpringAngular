@@ -1,0 +1,70 @@
+
+
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+    <div class="row">
+      <div class="col-md-12 m-b-30">
+        <!-- begin page title -->
+        <div class="d-block d-sm-flex flex-nowrap align-items-center">
+          <div class="page-title mb-2 mb-sm-0">
+            <h1>Rayon Managment</h1>
+          </div>
+          <div class="ml-auto d-flex align-items-center">
+            <nav>
+              <ol class="breadcrumb p-0 m-b-0">
+                <li class="breadcrumb-item">
+                  <a href="../../../../../index.html"><i class="ti ti-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                  Dashboard
+                </li>
+                <li class="breadcrumb-item active text-primary" aria-current="page">Job
+                  Portal</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <!-- end page title -->
+      </div>
+    </div>
+    <!-- end row -->
+
+    <!-- begin row -->
+    <div class="row">
+      <div class="col-xxl-6 m-b-30">
+        <div class="card card-statistics h-100 mb-0">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <div class="card-heading">
+              <h4 class="card-title">Add rayon</h4>
+            </div>
+            <a class="p-2" [routerLink]="['/rayon-management/list-rayon']" >Go back</a>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="addRayonForm" (ngSubmit)="addRayon()">
+
+              <div class="form-group">
+                <label for="code">Code</label>
+                <input  formControlName="code" class="form-control" id="code" >
+              </div>
+              <app-errors (formStatusEvent)="ChangeInputFieldStatus($event)" [recievedForm]="addRayonForm" *ngIf="addRayonForm.get('code')?.touched && addRayonForm.controls['code'].invalid" [errors]="addRayonForm.controls['code'].errors"></app-errors>
+
+              <div class="form-group">
+                <label for="label">Label</label>
+                <input  formControlName="libelle" class="form-control" id="label" >
+              </div>
+              <app-errors  (formStatusEvent)="ChangeInputFieldStatus($event)" [recievedForm]="addRayonForm"  *ngIf="addRayonForm.get('libelle')?.touched && addRayonForm.controls['libelle'].invalid" [errors]="addRayonForm.controls['libelle'].errors"></app-errors>
+
+              <button [disabled]="!addRayonForm.valid" class="btn btn-primary">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container-fluid -->
+</div>

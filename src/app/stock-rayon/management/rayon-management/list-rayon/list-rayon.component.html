@@ -1,0 +1,78 @@
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+    <div class="row">
+      <div class="col-md-12 m-b-30">
+        <!-- begin page title -->
+        <div class="d-block d-sm-flex flex-nowrap align-items-center">
+          <div class="page-title mb-2 mb-sm-0">
+            <h1>Rayon Managment</h1>
+          </div>
+          <div class="ml-5 ">
+            <nav>
+              <input type="text" placeholder="Search.." id="search"  [(ngModel)]="searchQuery" (ngModelChange)="search()">
+            </nav>
+          </div>
+        </div>
+        <!-- end page title -->
+      </div>
+    </div>
+    <!-- end row -->
+
+    <!-- begin row -->
+    <div class="row">
+      <div class="col-xxl-6 m-b-30">
+        <div class="card card-statistics h-100 mb-0">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <div class="card-heading">
+              <h4 class="card-title">Available stock</h4>
+            </div>
+
+            <a [routerLink]="['../add-rayon']"  class="btn btn-outline-dark btn-sm">
+              Add New Rayon
+            </a>
+
+
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="latestjobs" class="table table-borderless table-striped jobportal-table mb-0">
+                <thead>
+                <tr>
+                  <th>Rayon ID</th>
+                  <th>Rayon Code</th>
+                  <th>Rayon Label</th>
+                  <th> Products associated</th>
+                  <th>Actions</th>
+
+                </tr>
+                </thead>
+                <tbody class="text-muted">
+                <tr *ngFor="let rayon of rayons | paginate : {itemsPerPage: 3, currentPage: page, totalItems: totalLength}">
+                  <td>{{rayon.idRayon}}</td>
+                  <td>{{rayon.code}}</td>
+                  <td>{{rayon.libelle}}</td>
+                  <td>{{rayon.rayonproduittt.length}}</td>
+
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="goToUpdateRayon(rayon.idRayon)">Update</button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger btn-sm" (click)="goToDeleteRayon(rayon.idRayon)">Delete</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <pagination-controls [ngClass]="'pagination'" (pageChange)="page = $event"></pagination-controls>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container-fluid -->
+</div>

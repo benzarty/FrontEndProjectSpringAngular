@@ -7,10 +7,27 @@
       <h1 class="blockquote text-primary"> <a class="fa fa-history"></a>
        Historique 
       </h1>
+      <div class="search-content">
+        <form>
+            <div class="form-group">
+
+              <input type="text" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="searchText"
+                     class="form-control autocomplete" placeholder="Search Here"
+                     id="autocomplete-ajax"
+                     autofocus="autofocus" >
+
+              <div id='button-holder'>
+
+              </div>
+
+            </div>
+          </form>
+      </div>
   
   <div class="row">
       
-          <div class="col-md-6 w-25" *ngFor="let u of listFactureByClient | paginate: { itemsPerPage: 5, currentPage: page,totalItems:totalLengh }; let i = index; let f = first">
+          <div class="col-md-6 w-25" *ngFor="let u of listFactureByClient | facturesearch: searchText|  paginate: { itemsPerPage: 5, currentPage: page,totalItems:totalLengh }; let i = index; let f = first ">
               <div class="card text-center">
                   
                   <div class="card-body">

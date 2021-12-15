@@ -50,7 +50,7 @@ export class UpdateFactureComponent implements OnInit,OnChanges {
         console.log("Update successful");
         this.edited.emit(this.FactureToEdit)
         this.toaster.success('Modification succées ','Notification')
-        this.router.navigateByUrl("/home/facture/facture")
+        this.reloadComponent();
 
       }
     );
@@ -61,7 +61,12 @@ export class UpdateFactureComponent implements OnInit,OnChanges {
 
   }
   
-
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
    
  
    

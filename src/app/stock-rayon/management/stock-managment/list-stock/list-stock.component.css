@@ -1,0 +1,21 @@
+.status_ok {
+  background: #66cc91 !important;
+  color: black;
+}
+.status_missing{
+  background: #F47174 !important;
+  color: black;
+}
+
+.pagination{
+  display: flex;
+  align-items: center
+}
+#search{
+  float: right;
+  border: none;
+
+  font-size: 17px;
+
+}
+

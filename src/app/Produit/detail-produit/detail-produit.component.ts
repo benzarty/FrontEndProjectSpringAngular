@@ -13,6 +13,12 @@ export class DetailProduitComponent implements OnInit {
    starRating = 0; 
   // starRating = 0; 
 
+  stars = [1, 2, 3, 4, 5];
+  rating = 0;
+  hoverState = 0;
+  
+  title = "star-angular";
+
   constructor(private us:ProductService) { }
 
   ngOnInit(): void {
@@ -36,6 +42,19 @@ export class DetailProduitComponent implements OnInit {
               break; 
       }     }   
         return  (a.slice(b+1,a.length));   }
+
+
+        enter(i) {
+          this.hoverState = i;
+        }
+      
+        leave() {
+          this.hoverState = 0;
+        }
+      
+        updateRating(i) {
+          this.rating = i;
+        }
 }
 
 

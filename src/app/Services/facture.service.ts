@@ -13,11 +13,11 @@ export class FactureService {
 
 
   getFactureByClient() : Observable<Facture[]>{
-    return this.myhttp.get<Facture[]>("/api/SpringMVC/facture/getFacturesByClient/1");
+    return this.myhttp.get<Facture[]>("/api/SpringMVC/facture/getFacturesByClient/2");
   }
 
   getFacturesHistorique() : Observable<Facture[]>{
-    return this.myhttp.get<Facture[]>("/api/SpringMVC/facture/getFacturesHistorique/1");
+    return this.myhttp.get<Facture[]>("/api/SpringMVC/facture/getFacturesHistorique/2");
   }
 
 

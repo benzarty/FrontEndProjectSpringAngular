@@ -14,6 +14,7 @@ export class HistoryFactureComponent implements OnInit {
 
   listFactureByClient : Facture[];
 
+  searchText;
 
   totalLengh :any;
   page:number=1;

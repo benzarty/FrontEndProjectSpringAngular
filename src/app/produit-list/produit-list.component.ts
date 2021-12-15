@@ -60,7 +60,7 @@ export class ProduitListComponent implements OnInit,OnChanges {
     let myi=new DetailFacture();
     myi.qte=this.myForm.get('qte').value;
 
-this.idclient="1";
+this.idclient="2";
 
    this.us2.addDetailFacture(myi,v,this.idclient).subscribe(res => {
 

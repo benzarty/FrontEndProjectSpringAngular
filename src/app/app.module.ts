@@ -1,3 +1,4 @@
+import { StockRayonModule } from './stock-rayon/stock-rayon.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,14 +17,7 @@ import { ProduitListComponent } from './produit-list/produit-list.component';
 import { UpdateFactureComponent } from './update-facture/update-facture.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from 'ngx-toastr';
-import { HistoryFactureComponent } from './history-facture/history-facture.component';
-import { ListRayonComponent } from './Rayon/list-rayon/list-rayon.component';
-import { AddRayonComponent } from './Rayon/add-rayon/add-rayon.component';
-import { UpdateRayonComponent } from './Rayon/update-rayon/update-rayon.component';
-import { ListStockComponent } from './Stock/list-stock/list-stock.component';
-import { AddStockComponent } from './Stock/add-stock/add-stock.component';
-import { UpdateStockComponent } from './Stock/update-stock/update-stock.component';
-import { ErrorsComponent } from './errors/errors/errors.component';
+
 import { NgxPaginationModule } from 'ngx-pagination';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { ModalModule } from 'ngx-modal-bootstrap';
@@ -40,6 +34,9 @@ import { ClientProfileComponent } from './Client-Managment/client-profile/client
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpInterceptorService } from './Services/http-interceptor.service';
+import { FacturesearchPipe } from './rechercherfacture/facturesearch.pipe';
+import { HistoryFactureComponent } from './history-facture/history-facture.component';
+import { StarComponent } from './Produit/star/star.component';
 
 
 
@@ -55,13 +52,6 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     LayoutComponent,
 
     ProduitListComponent,
-    ListRayonComponent,
-    AddRayonComponent,
-    UpdateRayonComponent,
-    ListStockComponent,
-    AddStockComponent,
-    UpdateStockComponent,
-    ErrorsComponent,
     ProduitList1Component,
     ListeProduitadminComponent,
     DetailProduitComponent,
@@ -73,6 +63,10 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     ClientUpdateComponent,
     ClientProfileComponent,
     NotFoundComponent,
+    FacturesearchPipe,
+    HistoryFactureComponent,
+    StarComponent,
+    
 
 
 
@@ -89,6 +83,11 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
+    StockRayonModule,
+
+
+
+
     ModalModule.forRoot(),
     ToastrModule.forRoot(),SimpleNotificationsModule.forRoot()
   ],

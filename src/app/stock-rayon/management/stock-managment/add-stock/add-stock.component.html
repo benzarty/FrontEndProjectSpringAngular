@@ -1,0 +1,76 @@
+
+
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+    <div class="row">
+      <div class="col-md-12 m-b-30">
+        <!-- begin page title -->
+        <div class="d-block d-sm-flex flex-nowrap align-items-center">
+          <div class="page-title mb-2 mb-sm-0">
+            <h1>Stock Managment</h1>
+          </div>
+          <div class="ml-auto d-flex align-items-center">
+            <nav>
+              <ol class="breadcrumb p-0 m-b-0">
+                <li class="breadcrumb-item">
+                  <a href="../../../../../index.html"><i class="ti ti-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                  Dashboard
+                </li>
+                <li class="breadcrumb-item active text-primary" aria-current="page">Job
+                  Portal</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <!-- end page title -->
+      </div>
+    </div>
+    <!-- end row -->
+
+    <!-- begin row -->
+    <div class="row">
+      <div class="col-xxl-6 m-b-30">
+        <div class="card card-statistics h-100 mb-0">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <div class="card-heading">
+              <h4 class="card-title">Add stock</h4>
+            </div>
+            <a class="p-2" [routerLink]="['/stock-management/list-stock']" >Go back</a>
+
+          </div>
+          <div class="card-body">
+            <form [formGroup]="addStockForm" (ngSubmit)="addStock()">
+
+              <div class="form-group">
+                <label for="stock_qte">Stock quantity</label>
+                <input  formControlName="qteStock"  [placeholder]="'Stock quantity'" class="form-control" id="stock_qte" >
+              </div>
+              <app-errors  *ngIf="addStockForm.get('qteStock')?.touched && addStockForm.controls['qteStock'].invalid" [errors]="addStockForm.controls['qteStock'].errors"></app-errors>
+
+              <div class="form-group">
+                <label for="min_qte">Minimum quantity</label>
+                <input  formControlName="qteMin"  [placeholder]="'Minimum stock quantity'" class="form-control" id="min_qte" >
+              </div>
+              <app-errors  *ngIf="addStockForm.get('qteMin')?.touched && addStockForm.controls['qteMin'].invalid" [errors]="addStockForm.controls['qteMin'].errors"></app-errors>
+
+              <div class="form-group">
+                <label for="stock_label">Stock label</label>
+                <input  formControlName="libelleStock" [placeholder]="'Stock label'" class="form-control" id="stock_label" >
+              </div>
+              <app-errors  *ngIf="addStockForm.get('libelleStock')?.touched && addStockForm.controls['libelleStock'].invalid" [errors]="addStockForm.controls['libelleStock'].errors"></app-errors>
+              <button [disabled]="!addStockForm.valid" class="btn btn-primary">Submit</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container-fluid -->
+</div>
