@@ -1,3 +1,13 @@
+import { ListeProduitadminComponent } from './../Produit/liste-produitadmin/liste-produitadmin.component';
+import { ProduitPipe } from './../Produit/rechercherproduit/produit.pipe';
+import { ProduitListComponent } from './../produit-list/produit-list.component';
+import { ProduitList1Component } from './../Produit/produit-list1/produit-list1.component';
+import { DetailProduitComponent } from './../Produit/detail-produit/detail-produit.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { ToastrModule } from 'ngx-toastr';
+import { ModalModule } from 'ngx-modal-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RouterModule } from '@angular/router';
 import { HistoryFactureComponent } from './../history-facture/history-facture.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateFactureComponent } from './../update-facture/update-facture.component';
@@ -18,18 +28,29 @@ import {NgxPaginationModule} from 'ngx-pagination';
   declarations: [
     DetailFactureComponent,
     FactureComponent,
+    ProduitListComponent,
+    ProduitList1Component,
+    ProduitPipe,
+    DetailProduitComponent,
+     ListeProduitadminComponent,
     UpdateFactureComponent,
     HistoryFactureComponent
 
 
   ],
   imports: [
-    CommonModule,
-    FactureModulesRoutingModule,
     HttpClientModule,
+    RouterModule,
+    AppRoutingModule,
     ReactiveFormsModule,
+    BrowserModule,
     FormsModule,
-    NgxPaginationModule
+    AppRoutingModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    ModalModule.forRoot(),
+    ToastrModule.forRoot(),SimpleNotificationsModule.forRoot()
   ]
 })
 export class FactureModulesModule { }

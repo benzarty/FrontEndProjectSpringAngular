@@ -2,7 +2,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {  HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -26,7 +26,7 @@ import { AddStockComponent } from './Stock/add-stock/add-stock.component';
 import { UpdateStockComponent } from './Stock/update-stock/update-stock.component';
 import { ErrorsComponent } from './errors/errors/errors.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { ModalModule } from 'ngx-modal-bootstrap';
 import { ProduitList1Component } from './Produit/produit-list1/produit-list1.component';
 import { ListeProduitadminComponent } from './Produit/liste-produitadmin/liste-produitadmin.component';
@@ -54,8 +54,6 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     NavbarComponent,
     SidbarComponent,
     LayoutComponent,
-
-    ProduitListComponent,
     ListRayonComponent,
     AddRayonComponent,
     UpdateRayonComponent,
@@ -63,10 +61,6 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     AddStockComponent,
     UpdateStockComponent,
     ErrorsComponent,
-    ProduitList1Component,
-    ListeProduitadminComponent,
-    DetailProduitComponent,
-    ProduitPipe,
     LoginComponent,
     SignupComponent,
     ClientAddComponent,
@@ -92,9 +86,9 @@ import { HttpInterceptorService } from './Services/http-interceptor.service';
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
-    ToastrModule.forRoot(),SimpleNotificationsModule.forRoot()
+    ToastrModule.forRoot(), SimpleNotificationsModule.forRoot()
   ],
-  providers: [{provide : HTTP_INTERCEPTORS , useClass : HttpInterceptorService ,multi : true}],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
