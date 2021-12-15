@@ -1,0 +1,42 @@
+
+
+<table class="table pasi" >
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Code Fournisseur</th>
+      <th scope="col">Libellé Fournisseur</th>
+      <th scope="col">Action</th>
+      <th scope="col">  <button class="btn btn-primary " (click)="showForm()">Add Fournisseur</button></th>
+      <th scope="col">  <button class="btn btn-primary " (click)="showStat()" >show stat</button></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let i of fournisseurs; let position=index">
+    <tr>
+      <th scope="row">{{i.idFournisseur}}</th>
+      <td>{{i.codeFournisseur}}</td>
+      <td>{{i.libelleFournisseur}}</td>
+      <td>
+        <button [routerLink]="['/home/listFournisseur/',i.idFournisseur]" class="btn btn-primary">Visite</button> 
+        <button  class="btn btn-secondary" (click)="editFournisseur(i)">Edit</button> 
+        <button class="btn btn-danger" (click)="DeleteBtn(i,position)">Delete</button>
+      </td>
+    </tr>
+ 
+  </tbody>
+</table>
+
+<section class="lesFournisseur" *ngIf="!show" >
+  
+
+</section> 
+<app-categorie-fournisseur></app-categorie-fournisseur>
+<div class="btnplace" >
+  <app-edit-fournisseur  (edited)="editMyFournisseur($event)"  *ngIf="show" [Fournisseur]="Fournisseur"></app-edit-fournisseur>
+
+
+<app-form-fournisseur (aded)="addFournisseur($event)" *ngIf="showAdd"></app-form-fournisseur>
+
+
+<app-fournisseur-pie-charts *ngIf="showstat"></app-fournisseur-pie-charts>
+</div>

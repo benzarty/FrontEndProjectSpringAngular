@@ -1,0 +1,52 @@
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+
+    <div class="row">
+      <div class="col-md-6" *ngFor="let u of listProducts; let i = index; let f = first">
+
+
+
+        
+          <div class="card text-center">
+            <div class="card-body">
+              <img src="../../assets/télécharger.png" alt="" class="img-fluid" />
+
+              <h4 class="mt-3">Produit {{ i + 1 }}</h4>
+              <p>Montant Facture :{{ u.code }}</p>
+              <p>Active : {{ u.libelle }}</p>
+              <p>Date Facture: {{ u.prixUnitaire }}</p>
+              <input type="hidden"  required minlength="3" #box value="{{u.idProduit}}"   /> 
+
+              <form [formGroup]="myForm" (submit)="getall(box.value)">
+
+
+              <select class="js-basic-single form-control" formControlName="qte">
+                <optgroup label="Select Number of Products">
+                  
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+
+                  <option value="4">4</option>
+
+                  <option value="5">5</option>
+
+                  <option value="10">10</option>
+                </optgroup>
+              </select> 
+              
+              <button type="submit" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>  Ajouter Panier  </button>    
+            </form>
+           
+              </div>
+
+            <!--<button  (click)="getall(box.value)"> Valider </button> -->
+
+            </div>
+          </div>
+    
+      </div>
+    </div>
+  </div>

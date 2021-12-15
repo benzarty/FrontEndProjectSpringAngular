@@ -1,0 +1,23 @@
+
+
+<div class="card">
+    <form [formGroup]="myForm" (ngSubmit)="edit()"  > 
+      <input type="hidden"  formControlName="idfacture">       
+
+<div class="input-group mb-3 mt-4">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Mode de Paiement</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01" formControlName="modepaiement">
+      <option selected >Choose...</option>
+      <option value="Cheque">Cheque</option>
+      <option value="Espece">Espece</option>
+ 
+    </select>
+
+    <input type="submit" class="btn btn-primary" value="Change">       
+
+</div>
+</form>
+</div>
+

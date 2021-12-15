@@ -1,0 +1,123 @@
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+      <!-- begin row -->
+      <div class="row">
+          <div class="col-md-12 m-b-30">
+              <!-- begin page title -->
+              <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                  <div class="page-title mb-2 mb-sm-0">
+                      <h1>Panier</h1>
+                  </div>
+                  <div class="ml-auto d-flex align-items-center">
+                      <nav>
+                          <ol class="breadcrumb p-0 m-b-0">
+                              <li class="breadcrumb-item">
+                                  <a href="index.html"><i class="ti ti-home"></i></a>
+                              </li>
+                              <li class="breadcrumb-item">
+                                  Pages
+                              </li>
+                              <li class="breadcrumb-item active text-primary" aria-current="page">Panier</li>
+
+
+                          </ol>
+                      </nav>
+                      
+                  </div>
+                
+              </div>
+
+              <!-- end page title -->
+          </div>
+          <div class="container ">
+              <div class="float-right">
+          <button type="button" class="btn btn-outline-warning my-2 " (click)="makePDF()"> <i class="fas fa-file-pdf fa-2x"></i>  Convert PDF</button>
+       </div> </div>
+      </div>
+      <!-- end row -->
+
+      <!--mail-Compose-contant-start-->
+
+      <div id="content111" #content111>
+      <div class="row account-contant">
+          <div class="col-12">
+              <div class="card card-statistics">
+                  <div class="card-body p-0">
+                      <div class="row no-gutters">
+                          <div class="col-3 pb-xl-0 pb-5 border-right">
+                              <div class="page-account-profil pt-5">
+                                  <div class="profile-img text-center rounded-circle">
+                                      <div class="pt-5">
+                                          <div class="bg-img m-auto">
+                                              <img src="../../assets/télécharger.png" class="img-fluid" alt="users-avatar">
+                                          </div>
+                                          <div class="profile pt-4">
+                                              <h4 class="mb-1">Liste des Produits Achetés</h4>
+                                             
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  
+
+                                  <div class="profile-btn text-center">
+                                      <div><button class="btn btn-light text-primary mb-2" [routerLink]="['/home/facture/facture']">Return</button></div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class=" col-9 border-t border-right">
+                              <div class="page-account-form " *ngFor="let u of list; let i = index; let f=first">
+                                  <div class="form-titel border-bottom p-3" >
+                                    
+                                      <h5 class="mb-0 py-2 text-center">Detail Produit {{ i+1 }}</h5>
+                                  </div>
+                                  <div class="p-4">
+                                      <form>
+                                          <div class="form-row">
+                                              <div class="form-group col-md-12">
+                                                  <label for="name1">Prix Total</label>
+                                                  <input type="text" class="form-control" id="name1" value= "{{ u.prixtotal}}" >
+                                              </div>
+                                              <div class="form-group col-md-12">
+                                                  <label for="title1">Montant Remise</label>
+                                                  <input type="text" class="form-control" id="title1" value= "{{ u.montantRemise}}">
+                                              </div>
+                                              <div class="form-group col-md-12">
+                                                <label for="title1">Pourcentage Remise</label>
+                                                <input type="text" class="form-control" id="title1" value= "{{ u.pourcentageRemise}}">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                              <label for="title1">Quantité</label>
+                                              <input type="text" class="form-control" id="title1" value= "{{ u.qte}}">
+                                          </div>
+                                    
+                                        </div>
+                                        
+                                         
+                                      </form>
+                                  </div>
+                              </div>
+                            
+                          </div>
+                         
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      </div>
+      <!--mail-Compose-contant-end-->
+  </div>
+  <!-- end container-fluid -->
+</div>
+
+
+
+
+
+
+
+

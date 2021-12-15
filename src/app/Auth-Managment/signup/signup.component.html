@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Mentor - Bootstrap 4 Admin Dashboard Template</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
+    <meta name="author" content="Potenza Global Solutions" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- app favicon -->
+    <link rel="shortcut icon" href="=/assets/assets/img/favicon.ico">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- plugin stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/assets/assets/css/vendors.css" />
+    <!-- app style -->
+    <link rel="stylesheet" type="text/css" href="/assets/assets/css/style.css" />
+</head>
+
+<body class="bg-white">
+    <!-- begin app -->
+    <div class="app">
+        <!-- begin app-wrap -->
+        <div class="app-wrap">
+            <!-- begin pre-loader -->
+            
+            <!-- end pre-loader -->
+
+            <!--start login contant-->
+            <div class="app-contant">
+                <div class="bg-white">
+                    <div class="container-fluid p-0">
+                        <div class="row no-gutters">
+                            <div class="col-sm-6 col-lg-5 col-xxl-3  align-self-center order-2 order-sm-1">
+                                <div class="d-flex align-items-center h-100-vh">
+                                    <div class="register p-5">
+                                        <h1 class="mb-2">We are Mentor</h1>
+                                        <p>Welcome, Please create your account.</p>
+                                        <form action="http://themes.potenzaglobalsolutions.com/html/mentor-bootstrap-4-admin-dashboard-template/auth-register.html" class="mt-2 mt-sm-5">
+                                            <form [formGroup]="signinForm" (ngSubmit)="addSignUp()">
+                                            <div class="row">
+
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="name" class="control-label">Nom*</label>
+                                                        <input formControlName="nom" type="text" class="form-control" placeholder="Nom" id="name"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="alert alert-danger" role="alert"
+                                                *ngIf="signinForm.get('nom').errors && signinForm.get('nom').touched">
+                                                <div *ngIf="signinForm.get('nom').errors['required'] ">Champ obligatoire</div>
+                                                </div>
+
+
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="prename" class="control-label">Prenom*</label>
+                                                        <input formControlName="prenom" type="text" class="form-control" placeholder="Prenom" id="prename" />
+                                                    </div>
+                                                </div>
+                                                <div class="alert alert-danger" role="alert"
+                                                *ngIf="signinForm.get('prenom').errors && signinForm.get('prenom').touched">
+                                                <div *ngIf="signinForm.get('prenom').errors['required'] ">Champ obligatoire</div>
+                                            </div>
+    
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="usernom" class="control-label">Username*</label>
+                                                        <input formControlName="username" type="text" class="form-control" placeholder="Username" id="usernom" />
+                                                    </div>
+                                                
+                                                    <div class="alert alert-danger" role="alert"
+                                                    *ngIf="signinForm.get('username').errors && signinForm.get('username').touched">
+                                                    <div *ngIf="signinForm.get('username').errors['required'] ">Champ obligatoire</div>
+                                                </div>
+
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="pass" class="control-label">Password*</label>
+                                                        <input formControlName="password" type="password" class="form-control" placeholder="Password"  id="pass" />
+                                                    </div>
+                                                </div>
+                                                <div class="alert alert-danger" role="alert" *ngIf="signinForm.get('password').errors">
+                                                    <div *ngIf="signinForm.get('password').errors['minlength']">password min length 8
+                                                        characters</div>
+                                                </div>
+                                               
+                                                <div class="col-12 mt-3">
+                                                    <a  (click)="addSignUp()" class="btn btn-primary text-uppercase">Sign up</a>
+                                                </div>
+                                                <div class="alert alert-danger" role="alert" *ngIf="message">
+                                                    {{message}}
+                                                </div>
+                                                <div class="invalid-feedback" *ngIf="message">
+                                                    
+                                                  </div>
+                                                <div class="col-12  mt-3">
+                                                    <p>Already have an account ?<a [routerLink]="['../login']"> Sign In</a></p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xxl-9 col-lg-7 bg-gradient o-hidden order-1 order-sm-2">
+                                <div class="row align-items-center h-100">
+                                    <div class="col-7 mx-auto ">
+                                        <img class="img-fluid" src="assets/assets/img/bg/login.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end app-wrap -->
+    </div>
+    <!-- end app -->
+
+
+
+    <!-- plugins -->
+    <script src="assets/assets/js/vendors.js"></script>
+
+    <!-- custom app -->
+    <script src="assets/assets/js/app.js"></script>
+</body>
+
+</html>

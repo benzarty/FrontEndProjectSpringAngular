@@ -1,0 +1,293 @@
+<div class="app-main" id="main">
+    <!-- begin container-fluid -->
+    <div class="container-fluid">
+      <!-- begin row -->
+      <div class="row">
+        <div class="col-md-12 m-b-30">
+          <!-- begin page title -->
+          <div class="d-block d-sm-flex flex-nowrap align-items-center">
+            
+         
+            <div class="page-title mb-2 mb-sm-0">
+              <h1>Produit</h1>
+              <a href="javascript:void(0);" style=" margin-top: 1px;width: 200px;margin-left: 800px"
+              (click)="openModal(ajoutproduit)"
+              class="btn btn-primary">Ajouter Produit</a>
+            </div>
+            <div class="ml-auto d-flex align-items-center">
+              <nav>
+                <ol class="breadcrumb p-0 m-b-0">
+                  <li class="breadcrumb-item">
+                    <a href="index.html"><i class="ti ti-home"></i></a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    Pages
+                  </li>
+                  <li class="breadcrumb-item active text-primary" aria-current="page">Produit</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <!-- end page title -->
+        </div>
+      </div>
+      <!-- end row -->
+      <!-- start-clients contant-->
+      <div class="row">
+        <div class="search-wrapper" style="margin-left: 80%">
+
+          <div class="search-content">
+            <form>
+              <div class="form-group">
+  
+                <input type="text" [ngModelOptions]="{standalone: true}"
+                       [(ngModel)]="searchText"
+                       class="form-control autocomplete" placeholder="Search Here"
+                       id="autocomplete-ajax"
+                       autofocus="autofocus" >
+  
+                <div id='button-holder'>
+  
+                </div>
+  
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-12">
+
+
+          <div class="card card-statistics clients-contant">
+            <div class="card-header">
+              <div class="d-xxs-flex justify-content-between align-items-center">
+                <div class="card-heading">
+                  <h4 class="card-title">Produit</h4>
+                </div>
+                <div class="mt-xxs-0 mt-3 btn-group btn-group-toggle" data-toggle="buttons">
+
+
+                </div>
+              </div>
+            </div>
+            <div class="card-body py-0 table-responsive">
+              <table class="table clients-contant-table mb-0">
+                <thead>
+                <tr>
+                  <th scope="col">Code</th>
+                  <th scope="col">libelle </th>
+                  <th scope="col">Prix</th>
+                  <th scope="col">Update</th>
+                  <!-- <th scope="col">voirdetailsprod</th> -->
+                  <th scope="col">delete</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr
+                  *ngFor="let r of listeproduit  | produit: searchText
+                  | paginate:
+                  { itemsPerPage: 3, currentPage: p } ">
+
+
+                  <td>{{r.code}} </td>
+                  <td>{{r.libelle}}</td>
+
+                  <td>{{r.prixUnitaire}}</td>
+                  <!-- <td> {{r.details}</td> -->
+
+
+
+
+                  <td data-toggle="modal" data-target="#edit">
+                    <i class="nav-icon ti ti-pencil-alt btn-round" style="font-size:25px" (click)="recupere(r.idProduit,r.libelle,r.code,r.prixUnitaire,r.detailproduit)"></i>
+                  </td>
+
+                  <td><a href="javascript:void(0);" class="btn btn-icon btn-outline-danger btn-round"
+                         (click)="deleteProduct(r.idProduit)"    ><i class="ti ti-trash"></i></a>
+
+                  </td>
+
+                  <!-- <input type="text" class="form-control" #code value="" /> -->
+
+
+
+
+
+
+
+
+
+
+
+                </table>
+                
+            </div>
+            <pagination-controls style="margin-left: 30%" (pageChange)="p = $event"></pagination-controls>
+
+            <br>
+
+          </div>
+
+        </div>
+      </div>
+      <!-- end-clients contant-->
+    </div>
+    <!-- end container-fluid -->
+</div>
+  <ng-template #ajoutproduit>
+    <div class="modal-body text-center">
+      <p>Ajouter Produit</p>
+      <form [formGroup]="formproduit" class="mx-auto" style="width: 200px;"  (submit)="addprod(idrayon.value,idstock.value)">
+      <!-- (submit)="addprod(idrayon.value,idstock.value)"> -->
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label class="control-label">Nom produit</label>
+              <input type="text" class="form-control" formControlName="libelle"
+              [ngClass]="{ 'is-invalid': submitted && te['libelle'].errors }" />
+              <div *ngIf="submitted && te['libelle'].errors" class="invalid-feedback">
+                <div *ngIf="te['libelle'].errors['required']">
+                  NomProduit is required
+              </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="control-label">Code</label>
+              <input type="text" class="form-control" formControlName="code"
+              [ngClass]="{ 'is-invalid': submitted && te['code'].errors }"/>
+              <div *ngIf="submitted && te['code'].errors" class="invalid-feedback">
+                <div *ngIf="te['code'].errors['required']">
+                  Code is required
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          
+         
+          <div class="col-12">
+            <div class="form-group">
+              <label class="control-label">prixUnitaire</label>
+              <input type="text" class="form-control" formControlName="prixUnitaire"
+              [ngClass]="{ 'is-invalid': submitted && te['prixUnitaire'].errors }"  />
+              <div *ngIf="submitted && te['prixUnitaire'].errors" class="invalid-feedback">
+                
+
+                <!-- <div *ngIf="te['prixUnitaire'].errors['required']">
+                  PrixUnitaire is required
+              </div> -->
+              </div>
+            </div>
+            <div class="alert alert-danger" *ngIf="formproduit.get('prixUnitaire').errors['required']">prix required</div>
+          </div>
+         
+          
+          
+  
+          <div class="col-12">
+            <div class="form-group">
+              <label class="control-label">idRayon</label>
+              <input type="text" class="form-control" #idrayon value=""
+                    />
+             
+            </div>
+          </div>
+    
+          <div class="col-12">
+            <div class="form-group">
+              <label class="control-label">idStock</label>
+              <input type="text" class="form-control" #idstock value=""
+                    />
+             
+            </div>
+          </div>
+          <!-- <div class="col-12">
+            <div class="form-group">
+              <label for="categorieProduit-select">Choose  categorieProduit:</label>
+
+          <select name="categorieProduit" id="categorieProduit-select">
+            <option value="">--Please choose an option--</option>
+    <option value="Electromenager">Electromenager</option>
+    <option value="Alimentaire">Alimentaire</option>
+    <option value="Quincaillerie">Quincaillerie</option>
+    
+</select>
+              </div>
+              </div> -->
+
+           <div class="form-group">
+            <label>File Upload  </label>
+                <input type="file" accept="image/*" (change)="onSelectFile($event)">
+                <img [src]="imgURL" height="100" methpod ="post" enctype="multipart/form-data" *ngIf="imgURL">1
+        </div> 
+          <div class="col-12 mt-3">
+            <!-- <button type="submit" class="btn btn-primary  btn-sm"><i class="fa fa-database"></i> Submit</button> -->
+             <button type="button" class="btn btn-primary btn-sm" href="javascript:window.location.reload()"(click)="addprod(idrayon.value,idstock.value)">Ajouter</button> 
+            <br>
+            </div>
+            <div class="col-12 mt-3">
+            <button type="button" class="btn btn-outline-secondary btn-sm"  (click)="modalRef.hide()">Annuler</button>
+          </div>
+        </div>
+      </form>
+  
+      
+    </div>
+  </ng-template>
+  <div class=" example-modal ">
+    <div class="modal modal-primary" id="edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Modifier Produit</h3>
+          </div>
+          <div class="modal-body">
+  
+            <div class="box-body">
+              <form name="form" #f="ngForm" >
+                 <div class="form-group">
+                  <label> ID Produit</label>
+                  <input class="form-control"  type="text" name="idProduit" [(ngModel)]="produit.idProduit" #idProduit="ngModel"  />
+                  
+                  
+                </div> 
+                <div class="form-group">
+                  <label> Nom Produit</label>
+                  <input class="form-control"  type="text" name="libelle" [(ngModel)]="produit.libelle" #libelle="ngModel"  />
+                  
+                  
+                </div>
+                <div class="form-group">
+                  <label>Code</label>
+                  <input class="form-control"  type="text" name="code" [(ngModel)]="produit.code" #code="ngModel" />
+                  
+                </div>
+                <div class="form-group">
+                  <label>PrixUnitaire</label>
+                  <input class="form-control" type="text" name="prixUnitaire" [(ngModel)]="produit.prixUnitaire" #code="ngModel" />
+                  
+                </div>
+               
+                
+                
+                
+               
+                <button type="submit" class="btn btn-primary mr-2" data-dismiss="modal" (click)="f.form.valid && update()">Modifier</button>
+                 <button class="btn btn-outline-secondary mr-2" data-dismiss="modal">Annuler</button> 
+                <!-- <a class="p-2" [routerLink]="['/home/listProduitAdmin']" >Annuler</a>
+   -->
+              </form>
+  
+            </div>
+  
+  
+          </div>
+        </div>
+    </div>
+       </div>
+  </div>
+  

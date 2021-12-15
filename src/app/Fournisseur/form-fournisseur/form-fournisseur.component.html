@@ -1,0 +1,17 @@
+
+
+<form class="" [formGroup]="myForm" (submit)="add()">
+    <div class="form-group">
+        <label>Code Fournisseur</label>
+        <input type="text" 
+        class="form-control" name="codeFournisseur" [(ngModel)]="fournisseur.codeFournisseur" formControlName="codeFournisseur"> 
+    </div>
+    <div class="form-group">
+        <p class="condition">*Vous Devez Creer votre ville puis "," puis votre libellé </p>
+        <label>Libellé Fournisseur</label>
+        <input type="text" 
+        class="form-control" formControlName="libelleFournisseur">
+    </div> 
+  
+    <input type="submit" class="btn btn-primary" value="add Fournisseur">       
+</form>

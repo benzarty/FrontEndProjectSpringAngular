@@ -1,0 +1,83 @@
+<div class="app-main" id="main">
+    
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+  
+<div class="text-right pb-2">
+    <button class="btn btn-outline-warning" [routerLink]="['/home/facture/history']"><i class="fa fa-list-ul"></i> historique Complete</button>
+
+</div>
+
+<div class="row">
+    
+        <div class="col-md-12 w-25" *ngFor="let u of listFactureByClient; let i = index; let f = first">
+            <div class="card">
+                
+                <div class="card-body">
+          <div class="text-center">
+            <img src="../../assets/télécharger.png" alt="" class="img-fluid ">
+            <h4 class="mt-3">Facture {{ i+1 }}</h4>
+            <a href="javascript:void(0)" class="dot"></a><span>Active </span>
+            <input type="hidden"  required minlength="3" #box value="{{u.idFacture}}"   /> 
+
+            <form [formGroup]="myForm" (submit)="getall(box.value)">
+            
+            </form>
+            <div class="mt-3 d-flex justify-content-center">
+               <h4> <span class="badge badge-pill badge-success-inverse px-5 py-2  ">Montant Facture :{{u.montantFacture }}</span></h4>
+               <h4>  <span class="badge badge-pill badge-primary-inverse px-5 py-2">Date Facture: {{ u.datefacture}}</span></h4>
+                <h4>   <span class="badge badge-pill badge-info-inverse px-5 py-2">Montant Remise : {{ u.montantRemise}}</span></h4>
+                    <h4> <span class="badge badge-pill badge-warning-inverse px-3 py-2">Mode De paiement : {{ u.modepaiement}}</span></h4>
+            </div>
+            <button type="button" class="btn btn-outline-secondary ml-2 mt-3" [routerLink]="['/home/facture/detailfacture',u.idFacture]"> <i class="fas fa-info-circle"></i>  Click For more Details</button>
+            <button type="button" class="btn btn-outline-danger ml-2 mt-3" (click)="deleteFacture(u)"><i class="fas fa-trash-alt"></i> Delete Facture</button>
+            <button type="button" class="btn btn-outline-warning ml-2 mt-3" (click)="editFacture(u)"><i class="fas fa-wrench"></i>  Update Facture</button>
+            <button type="button" class="btn btn-outline-dark ml-2 mt-3" (click)="getall(u)"><i class="fas fa-shopping-cart"></i> Checkout</button>
+
+        
+        
+        </div>
+    
+
+          
+
+
+            
+
+             
+
+
+
+            </div>
+            
+        </div>
+        
+        </div>
+        
+    
+  </div>
+ <app-update-facture (edited)="editMyFacture($event)"  *ngIf="show" [FactureToEdit]="factureToEditParent"></app-update-facture>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+ 
+
+</div>
+
+
+
+

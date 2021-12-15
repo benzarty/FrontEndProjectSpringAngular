@@ -1,0 +1,67 @@
+<div class="app-main" id="main">
+    
+    <!-- begin container-fluid -->
+    <div class="container-fluid">
+      <!-- begin row -->
+    
+      <h1 class="blockquote text-primary"> <a class="fa fa-history"></a>
+       Historique 
+      </h1>
+  
+  <div class="row">
+      
+          <div class="col-md-6 w-25" *ngFor="let u of listFactureByClient | paginate: { itemsPerPage: 5, currentPage: page,totalItems:totalLengh }; let i = index; let f = first">
+              <div class="card text-center">
+                  
+                  <div class="card-body">
+            
+              <img src="../../assets/télécharger.png" alt="" class="img-fluid ">
+              <h4 class="mt-3">Facture {{ i+1 }}</h4>
+              <div class="mt-3">
+                <h4> <span class="badge badge-pill badge-success-inverse px-5 py-2  ">Montant Facture :{{u.montantFacture }}</span></h4>
+                <h4>  <span class="badge badge-pill badge-primary-inverse px-5 py-2">Date Facture: {{ u.datefacture}}</span></h4>
+                 <h4>   <span class="badge badge-pill badge-info-inverse px-5 py-2">Montant Remise : {{ u.montantRemise}}</span></h4>
+                     <h4> <span class="badge badge-pill badge-warning-inverse px-3 py-2">Mode De paiement : {{ u.modepaiement}}</span></h4>
+             </div>
+  
+  
+              
+  
+                  <button type="button" class="btn btn-outline-secondary ml-2 mt-3" [routerLink]="['/home/facture/detailfacture',u.idFacture]">Click For more Details</button>
+  
+  
+  
+              </div>
+              
+          </div>
+          
+          </div>
+          
+      
+    </div>
+
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <pagination-controls class="text-center my-pagination" (pageChange)="page = $event"></pagination-controls>
+
+  
+  
+  
+      </div>
+
+   
+  
+  </div>
+  
+  
+  
+  
+  

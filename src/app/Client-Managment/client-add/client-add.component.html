@@ -1,0 +1,142 @@
+<div class="app-main" id="main">
+    <!-- begin container-fluid -->
+    <div class="container-fluid">
+        <!-- begin row -->
+        <div class="row">
+            <div class="col-md-12 m-b-30">
+                <!-- begin page title -->
+                <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                    <div class="page-title mb-2 mb-sm-0">
+                        <h1>Client Managment</h1>
+                    </div>
+                    <div class="ml-auto d-flex align-items-center">
+                        <nav>
+                            <ol class="breadcrumb p-0 m-b-0">
+                                <li class="breadcrumb-item">
+                                    <a href="../../../../index.html"><i class="ti ti-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    Dashboard
+                                </li>
+                                <li class="breadcrumb-item active text-primary" aria-current="page">Job
+                                    Portal</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <!-- end page title -->
+            </div>
+        </div>
+        <!-- end row -->
+
+        <!-- begin row -->
+        <div class="row">
+            <div class="col-xxl-6 m-b-30">
+                <div class="card card-statistics h-100 mb-0">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <div class="card-heading">
+                            <h4 class="card-title">Add New Client</h4>
+                        </div>
+                        <div class="dropdown">
+                            <a class="p-2 export-btn" href="#!" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Export
+                            </a>
+                            <div class="dropdown-menu custom-dropdown dropdown-menu-right p-4">
+                                <h6 class="mb-1">Action</h6>
+                                <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-file-pdf-o pr-2"></i>Export to
+                                    PDF</a>
+                                <a class="dropdown-item" href="#!"><i class="fa-fw fa fa-file-excel-o pr-2"></i>Export
+                                    to CSV</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="addClientForm" (ngSubmit)="addClient()">
+                            <div class="form-group">
+                                <label for="client_categ">Categorie Client</label>
+                                <select formControlName="categorieClient" class="form-control">
+                                    <option [ngValue]="null" disabled>Select Category</option>
+                                    <option>Fidele</option>
+                                    <option>Ordinaire</option>
+                                    <option>Premium</option>
+                                </select>
+                            </div>
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="addClientForm.get('categorieClient').errors && addClientForm.get('categorieClient').touched">
+                                <div *ngIf="addClientForm.get('categorieClient').errors['required'] ">Champ obligatoire
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Nom </label>
+                                <input formControlName="nom" class="form-control" id="name">
+                            </div>
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="addClientForm.get('nom').errors && addClientForm.get('nom').touched">
+                                <div *ngIf="addClientForm.get('nom').errors['required'] ">Champ obligatoire</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prename">Prenom</label>
+                                <input formControlName="prenom" class="form-control" id="prename">
+                            </div>
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="addClientForm.get('prenom').errors && addClientForm.get('prenom').touched">
+                                <div *ngIf="addClientForm.get('prenom').errors['required'] ">Champ obligatoire</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mail">Email</label>
+                                <input formControlName="email" class="form-control" id="mail">
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="addClientForm.get('email').errors">
+                                <div *ngIf="addClientForm.get('email').errors['pattern']">pattern non respecté must a
+                                    Gmail</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pass">Password</label>
+                                <input formControlName="password" type="password" class="form-control" id="pass">
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="addClientForm.get('password').errors">
+                                <div *ngIf="addClientForm.get('password').errors['minlength']">password min length 8
+                                    characters</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prof">Profession</label>
+                                <select formControlName="profession" class="form-control">
+                                    <option [ngValue]="null" disabled>Select Profession</option>
+                                    <option>Docteur</option>
+                                    <option>Ingénieur</option>
+                                    <option>Etudiant</option>
+                                    <option>Commerical</option>
+                                    <option>Cadre</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="datnais">Date de Naissance</label>
+                                <input formControlName="dateNaissance" class="form-control" id="datnais">
+                            </div>
+                            <div class="alert alert-danger" role="alert"
+                                *ngIf="addClientForm.get('dateNaissance').errors">
+                                <div *ngIf="addClientForm.get('dateNaissance').errors['pattern']">pattern non respecté
+                                    must be of format YYYY-MM-DD</div>
+                            </div>
+
+                          
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container-fluid -->
+</div>

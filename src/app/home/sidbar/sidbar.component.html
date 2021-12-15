@@ -1,0 +1,49 @@
+<aside class="app-navbar">
+    <!-- begin sidebar-nav -->
+    <div class="sidebar-nav scrollbar scroll_light">
+      <ul class="metismenu " id="sidebarNav">
+        <li class="nav-static-title">Personal</li>
+        <li class="active">
+          <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">
+            <i class="nav-icon ti ti-rocket"></i>
+            <span class="nav-title">Dashboards</span>
+            <span class="nav-label label label-danger">9</span>
+          </a>
+  
+        </li>
+        <li><a [routerLink]="['/home/clientretrieve']" aria-expanded="false"><i class="fas fa-users"></i><span
+          class="nav-title">Gerer client</span></a></li>
+
+        <li><a [routerLink]="['/home/produit-management/listProduitAdmin']" aria-expanded="false"><i class="dashicons dashicons-editor-help"></i><span
+          class="nav-title">Liste Produit Admin</span></a></li>
+  
+        <li><a [routerLink]="['/home/produit-management/listProduit1']" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
+          class="nav-title">Liste Produit Client</span></a></li>
+
+          <li><a routerLink="" aria-expanded="false" [routerLink]="['/home/listProduit']"><i class="nav-icon ti ti-email"></i><span
+            class="nav-title" >Liste Produit Benzarti</span></a></li>
+  
+  
+  
+        <li><a [routerLink]="['/home/facture/facture']" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span
+          class="nav-title">Panier</span></a></li>
+
+          
+        <li><a [routerLink]="['/home/stock-management/list-stock']" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
+          class="nav-title">Gerer stock</span></a></li>
+  <li><a [routerLink]="['/home/rayon-management/list-rayon']" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
+          class="nav-title">Gerer rayon</span></a></li>
+
+         
+          <li><a [routerLink]="['/home/listFournisseur']"  aria-expanded="false"><i class="nav-icon ti ti-email"></i><span
+            class="nav-title">Gerer fournisseur</span></a></li>
+      
+
+            <li><a routerLink="" aria-expanded="false" [routerLink]="['/login']" (click)="logout"><i class="fas fa-sign-out-alt"></i><span
+              class="nav-title" >Logout</span></a></li>
+
+      </ul>
+    </div>
+    <!-- end sidebar-nav -->
+  </aside>
+  
